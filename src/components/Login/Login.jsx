@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelectore } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
 
 import { logIn } from 'redux/auth/operations';
