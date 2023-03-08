@@ -27,7 +27,7 @@ const SharedLayout = () => {
   return (
     <>
       <CardWraper>
-        <StyledLink to="home">Home</StyledLink>
+        <StyledLink to="/goit-react-hw-08-phonebook">Home</StyledLink>
         {logIn ? (
           <>
             <StyledLink to="contacts">Contacts</StyledLink>

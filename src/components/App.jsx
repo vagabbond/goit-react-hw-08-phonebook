@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router';
+import { Route, Routes, Navigate } from 'react-router';
 import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PrivateRoute } from './PrivateRoute';
@@ -25,7 +25,7 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/goit-react-hw-08-phonebook" element={<SharedLayout />}>
-        <Route index path="home" element={<Home />} />
+        <Route index element={<Home />} />
 
         <Route
           path="login"
@@ -54,6 +54,10 @@ export const App = () => {
               }
             />
           }
+        />
+        <Route
+          path="*"
+          element={<Navigate to="/goit-react-hw-08-phonebook" />}
         />
       </Route>
     </Routes>
