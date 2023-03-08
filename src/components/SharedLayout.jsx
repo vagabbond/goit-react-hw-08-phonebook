@@ -27,10 +27,10 @@ const SharedLayout = () => {
   return (
     <>
       <CardWraper>
-        <StyledLink to="/home">Home</StyledLink>
+        <StyledLink to="home">Home</StyledLink>
         {logIn ? (
           <>
-            <StyledLink to="/contacts">Contacts</StyledLink>
+            <StyledLink to="contacts">Contacts</StyledLink>
             <Button
               type="button"
               sx={{
@@ -45,8 +45,8 @@ const SharedLayout = () => {
           </>
         ) : (
           <>
-            <StyledLink to="/login">Login</StyledLink>
-            <StyledLink to="/register">Register</StyledLink>
+            <StyledLink to="login">Login</StyledLink>
+            <StyledLink to="register">Register</StyledLink>
           </>
         )}
       </CardWraper>

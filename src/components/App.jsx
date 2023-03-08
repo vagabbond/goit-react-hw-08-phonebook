@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router';
-import { lazy } from 'react';
-
+import { lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestictedRoute';
 
 import SharedLayout from './SharedLayout';
-
+import { refreshUser } from 'redux/auth/operations';
 const Login = lazy(() => import('./Login/Login'));
 const Register = lazy(() => import('./Register/Register'));
 const Home = lazy(() => import('./Home/Home'));
@@ -13,9 +13,18 @@ const Phonebook = lazy(() => import('./phonebook/Phonebook'));
 const PhonebookList = lazy(() => import('./phonebookList/PhonebookList'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(state => state.auth.isRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
+      <Route path="/goit-react-hw-08-phonebook" element={<SharedLayout />}>
         <Route index path="home" element={<Home />} />
 
         <Route
