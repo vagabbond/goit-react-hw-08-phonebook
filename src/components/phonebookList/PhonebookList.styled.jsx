@@ -16,8 +16,8 @@ export const PhonebookListItem = styled.li`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border: 1px solid #232323;
-  border-radius: 5px;
+  border-bottom: 1px solid #232323;
+
   margin-bottom: 10px;
 `;
 
